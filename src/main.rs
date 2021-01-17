@@ -1,3 +1,5 @@
+mod ch_01;
+
 fn main() {
-    println!("Hello, world!");
+    println!("{}", ch_01::palindfrome_permutation("abcbacdddff"));
 }
