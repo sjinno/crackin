@@ -71,3 +71,32 @@ pub fn is_one_away(s1: &str, s2: &str) -> bool {
         return count == 2;
     }
 }
+
+// 1.6 Compressed String
+pub fn compress_string(s: &str) -> String {
+    use std::char;
+    let length = s.len();
+    let mut compressed_string = Vec::<(char, usize)>::with_capacity(length);
+    let mut idx = 0;
+    // let mut count = 1;
+    let mut iter = s.chars();
+    compressed_string.push((iter.next().unwrap(), 1));
+    while let Some(c) = iter.next() {
+        if c == compressed_string[idx].0 {
+            compressed_string[idx].1 += 1;
+        } else {
+            compressed_string.push((c, 1));
+            idx += 1;
+        }
+    }
+
+    if length == compressed_string.len() * 2 {
+        return s.to_string();
+    }
+
+    // println!("{:?}", compressed_string);
+    compressed_string
+        .iter()
+        .map(|(c, n)| format!("{}{}", c, n))
+        .collect::<String>()
+}

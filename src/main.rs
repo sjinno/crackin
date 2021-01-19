@@ -8,13 +8,19 @@ fn main() {
     // let arr2 = vec![2, 3, 4, 5, 7, 8, 11, 13];
     // println!("{:?}", ch_10::merge_sort(arr1, arr2));
 
-    let test_cases = [
-        ("pale", "pal"),
-        ("pales", "pale"),
-        ("pale", "bale"),
-        ("pale", "bake"),
-    ];
-    for test in test_cases.iter() {
-        println!("{}", ch_01::is_one_away(test.0, test.1));
-    }
+    // 1.5
+    // let test_cases = [
+    //     ("pale", "pal"),
+    //     ("pales", "pale"),
+    //     ("pale", "bale"),
+    //     ("pale", "bake"),
+    // ];
+    // for test in test_cases.iter() {
+    //     println!("{}", ch_01::is_one_away(test.0, test.1));
+    // }
+
+    // 1.6
+    let s = "aabcccccaaa";
+    println!("{}", ch_01::compress_string(s));
+    println!("{}", ch_01::compress_string("aabbcc"));
 }
