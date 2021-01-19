@@ -138,3 +138,30 @@ pub fn rotate_matrix(mut mtx: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
 
     mtx
 }
+
+// 1.8 Zero Matrix: Write an algorithm such that
+// if an element in an MxM matrix is 0,
+// its entire row and column are set to 0.
+// I don't really know what the question is asking...
+pub fn zero_matrix(mut mtx: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
+    let mut to_change: Vec<(usize, usize)> = vec![];
+    let size = mtx.len();
+    for r in 0..size {
+        for c in 0..size {
+            if mtx[r][c] == 0 {
+                to_change.push((r, c));
+            }
+        }
+    }
+
+    for chg in to_change {
+        println!("{:?}", chg);
+        for i in 0..size {
+            mtx[chg.0][i] = 0;
+            mtx[i][chg.1] = 0;
+        }
+    }
+    println!("======");
+
+    mtx
+}
