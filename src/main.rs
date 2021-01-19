@@ -39,15 +39,18 @@ fn main() {
     // print_mtx(mm1);
     // print_mtx(mm2);
 
-    let m1 = vec![vec![1, 0], vec![2, 3]];
+    // let m1 = vec![vec![1, 0], vec![2, 3]];
 
-    let m2 = vec![vec![1, 2, 3], vec![4, 0, 6], vec![7, 8, 9]];
+    // let m2 = vec![vec![1, 2, 3], vec![4, 0, 6], vec![7, 8, 9]];
 
-    let mm1 = ch_01::zero_matrix(m1);
-    let mm2 = ch_01::zero_matrix(m2);
+    // let mm1 = ch_01::zero_matrix(m1);
+    // let mm2 = ch_01::zero_matrix(m2);
 
-    print_mtx(mm1);
-    print_mtx(mm2);
+    // print_mtx(mm1);
+    // print_mtx(mm2);
+
+    // 1.9 String Rotation
+    println!("{}", ch_01::is_rotation("waterbottle", "erbottlewat"));
 }
 
 #[allow(dead_code)]

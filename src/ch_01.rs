@@ -143,6 +143,7 @@ pub fn rotate_matrix(mut mtx: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
 // if an element in an MxM matrix is 0,
 // its entire row and column are set to 0.
 // I don't really know what the question is asking...
+#[allow(dead_code)]
 pub fn zero_matrix(mut mtx: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
     let mut to_change: Vec<(usize, usize)> = vec![];
     let size = mtx.len();
@@ -164,4 +165,58 @@ pub fn zero_matrix(mut mtx: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
     println!("======");
 
     mtx
+}
+
+// 1.9 String Rotation
+#[allow(dead_code)]
+pub fn is_rotation(s1: &str, s2: &str) -> bool {
+    let (len1, len2) = (s1.len(), s2.len());
+    if len1 != len2 {
+        return false;
+    }
+
+    let mut chars1 = s1.chars();
+    let mut chars2 = s2.chars();
+
+    let first = chars1.next().unwrap();
+    let mut to_append = vec![];
+
+    while let Some(c) = chars2.next() {
+        if c != first {
+            to_append.push(c);
+            continue;
+        } else {
+            break;
+        }
+    }
+
+    // println!("{:?}", chars1);
+    // println!("{:?}", chars2);
+    // println!("{:?}", to_append);
+    let mut new = chars2.collect::<Vec<char>>();
+    new.extend(to_append);
+
+    new == chars1.collect::<Vec<char>>()
+}
+
+fn is_substring(s1: &str, s2: &str) -> bool {
+    let (len1, len2) = (s1.len(), s2.len());
+    let chars1 = s1.chars().collect::<Vec<_>>();
+    let chars2 = s2.chars().collect::<Vec<_>>();
+    if len1 > len2 {
+        let iter = chars1.windows(len2);
+        for s in iter {
+            if s == chars2 {
+                return true;
+            }
+        }
+    } else {
+        let iter = chars2.windows(len1);
+        for s in iter {
+            if s == chars1 {
+                return true;
+            }
+        }
+    }
+    false
 }
