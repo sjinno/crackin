@@ -23,4 +23,25 @@ fn main() {
     let s = "aabcccccaaa";
     println!("{}", ch_01::compress_string(s));
     println!("{}", ch_01::compress_string("aabbcc"));
+
+    // 1.7
+    let m1 = vec![vec![1, 2], vec![3, 4]];
+
+    let m2 = vec![
+        vec![1, 2, 3, 4, 5],
+        vec![6, 7, 8, 9, 10],
+        vec![11, 12, 13, 14, 15],
+        vec![16, 17, 18, 19, 20],
+        vec![21, 22, 23, 24, 25],
+    ];
+    let mm1 = ch_01::rotate_matrix(m1);
+    let mm2 = ch_01::rotate_matrix(m2);
+    print_mtx(mm1);
+    print_mtx(mm2);
+}
+
+fn print_mtx(mtx: Vec<Vec<usize>>) {
+    for row in mtx {
+        println!("{:?}", row);
+    }
 }

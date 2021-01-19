@@ -100,3 +100,29 @@ pub fn compress_string(s: &str) -> String {
         .map(|(c, n)| format!("{}{}", c, n))
         .collect::<String>()
 }
+
+// 1.7 Rotate Matrix
+pub fn rotate_matrix(mut mtx: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
+    let size = mtx.len() - 1;
+    let (mut low, mut up) = (0, size);
+    while low < up {
+        let (mut a, mut b) = (low, up);
+
+        while a < up && b > low {
+            let tmp1 = mtx[a][up];
+            let tmp2 = mtx[up][b];
+            let tmp3 = mtx[b][low];
+            mtx[a][up] = mtx[low][a];
+            mtx[up][b] = tmp1;
+            mtx[b][low] = tmp2;
+            mtx[low][a] = tmp3;
+            a += 1;
+            b -= 1;
+        }
+
+        low += 1;
+        up -= 1;
+    }
+
+    mtx
+}
