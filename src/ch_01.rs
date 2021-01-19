@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 
 // 1.4 Palindrome Permutation
+#[allow(dead_code)]
 pub fn palindfrome_permutation(s: &str) -> bool {
     if s.len() < 3 {
         return true;
@@ -26,6 +27,7 @@ pub fn palindfrome_permutation(s: &str) -> bool {
 }
 
 // 1.5 One Away
+#[allow(dead_code)]
 pub fn is_one_away(s1: &str, s2: &str) -> bool {
     let (l1, l2) = (s1.len(), s2.len());
     let rem = l1.rem_euclid(l2);
@@ -66,13 +68,14 @@ pub fn is_one_away(s1: &str, s2: &str) -> bool {
     }
 
     if rem == 1 || rem == l1 {
-        return count == 1;
+        count == 1
     } else {
-        return count == 2;
+        count == 2
     }
 }
 
 // 1.6 Compressed String
+#[allow(dead_code)]
 pub fn compress_string(s: &str) -> String {
     use std::char;
     let length = s.len();
@@ -81,7 +84,15 @@ pub fn compress_string(s: &str) -> String {
     // let mut count = 1;
     let mut iter = s.chars();
     compressed_string.push((iter.next().unwrap(), 1));
-    while let Some(c) = iter.next() {
+    // while let Some(c) = iter.next() {
+    //     if c == compressed_string[idx].0 {
+    //         compressed_string[idx].1 += 1;
+    //     } else {
+    //         compressed_string.push((c, 1));
+    //         idx += 1;
+    //     }
+    // }
+    for c in iter {
         if c == compressed_string[idx].0 {
             compressed_string[idx].1 += 1;
         } else {
@@ -102,6 +113,7 @@ pub fn compress_string(s: &str) -> String {
 }
 
 // 1.7 Rotate Matrix
+#[allow(dead_code)]
 pub fn rotate_matrix(mut mtx: Vec<Vec<usize>>) -> Vec<Vec<usize>> {
     let size = mtx.len() - 1;
     let (mut low, mut up) = (0, size);

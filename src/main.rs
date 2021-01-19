@@ -40,6 +40,7 @@ fn main() {
     print_mtx(mm2);
 }
 
+#[allow(dead_code)]
 fn print_mtx(mtx: Vec<Vec<usize>>) {
     for row in mtx {
         println!("{:?}", row);

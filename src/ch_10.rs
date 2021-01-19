@@ -1,4 +1,5 @@
 // 10.1 Sorted Merge
+#[allow(dead_code)]
 pub fn merge_sort(mut arr1: Vec<i32>, arr2: Vec<i32>) -> Vec<i32> {
     use std::cmp::Ordering;
     let (len1, len2) = (arr1.len(), arr2.len());
@@ -27,13 +28,12 @@ pub fn merge_sort(mut arr1: Vec<i32>, arr2: Vec<i32>) -> Vec<i32> {
     }
 
     let (a, b) = (arr1[idx1], arr2[idx2]);
-    if a < b {
-        arr1[to_change] = b;
-    } else if a > b {
-        arr1[to_change] = a;
-        arr1[0] = b;
-    } else {
-        arr1[to_change] = a;
+    match (a, b) {
+        (x, y) if x > y => {
+            arr1[to_change] = x;
+            arr1[0] = y;
+        }
+        _ => arr1[to_change] = b,
     }
 
     arr1
